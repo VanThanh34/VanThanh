@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Select a new car from the list.</p></pơ>
+<select id="car">
+<option value="mer">Mercedes</option>
+<option value="vin">VinFast</option>
+<option value="bmw">BMW</option>
+<option value="honda">Honda Civic</option>
+</select>
+<script>
+    // function do_something() {
+    //     var selectedValue = document.getElementById("car").value;
+    //     alert(selectedValue);
+    // }
+
+    var selectedElement = document.getElementById("car");
+    selectedElement.addEventListener("change" ,changeFunction);
+    function changeFunction() {
+        var selectValue = document.getElementByID("car").value;
+        alert(selectValue);
+    }
+</script>
+</body>
+</html>
