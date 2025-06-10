@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính yêu của em</title>
+</head>
+<body>
+<h1>Caculator</h1>
+<table style="width:40%">
+
+    <tr>
+        <td>
+        <input style="height: 25px" type="number" id="num1" placeholder="Mời nhập số thứ nhất" >
+        </td>
+        <td>
+        <input style="height: 25px" type="number" id="num2" placeholder="Mời nhập số thứ hai">
+        </td>
+    </tr>
+
+    <tr style="text-align:center">
+        <td style="border: 1px solid black; width: 10%; height: 30px" onclick="do_Add()">Addition(+)</td>
+        <td style="border: 1px solid black; width: 10%" onclick="do_Sub()">Subtraction(-)</td>
+        <td style="border: 1px solid black; width: 10%"onclick="do_Mul()">Multiolication(X)</td>
+        <td style="border: 1px solid black; width: 10%"onclick="do_Div()">Division(/)</td>
+    </tr>
+</table>
+<script src="carculator.js">
+
+</script>
+<p style="font-weight: bold;  font-size:25px">Result:</p>
+<p id="Ketqua" style="font-size: 20px"></p>
+</body>
+</html>
