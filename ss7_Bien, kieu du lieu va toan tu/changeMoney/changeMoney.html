@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChangeMoney</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th style="width:40px; text-align:center"><label for="Amount">Amount</label></th>
+        <th style="width:300px"><label for="from"></label>From Currency</th>
+        <th style="width:300px; text-align:center; margin-left: 550px"><label for="to"></label>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="number" style="height:30px" id="Amount" ></td>
+        <td>
+            <select style="width:120px; height:30px;margin-left:90px"  id="from">
+                <option value="VN">VietNam</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select style="width:100px; height:30px;margin-left:100px"  id="to">
+                <option value="USD">USD</option>
+                <option value="VN">VietNam</option>
+            </select>
+        </td>
+        <td>
+            <button style="background-color:mediumpurple; color:white; width:100px; height:30px" onclick="changeMoney()">Convert</button>
+        </td>
+    </tr>
+
+</table>
+<br>
+<p id="result"></p>
+<script src="changeMoney.js">
+
+</script>
+
+</body>
+</html>
