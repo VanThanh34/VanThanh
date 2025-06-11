@@ -1,23 +1,19 @@
 function changeMoney() {
 
-    let Amount = document.getElementById("Amount").value;
+    let amount = document.getElementById("Amount").value;
     let from = document.getElementById("from").value;
     let to = document.getElementById("to").value;
-    let Result ;
+    let Result;
 
+    if (!isNaN(amount) && amount > 0) {
+        if (from === "VN" && to === "USD") {
+            Result = "Result: " + (amount / 23000) + "$";
+        } else if (from === "USD" && to === "VN") {
+            Result = "Result: " + (amount * 23000) + "VND";
+        } else {
+            Result = "Bạn cần chọn đúng đơn vị";
+        }
 
-    if (from === "VN" && to === "USD") {
-        Result = "Result: " + (Amount / 23000) + "$";
-    }
-    else if (from === "USD" && to === "VN") {
-        Result = "Result: " + (Amount * 23000) + "VND";
-    }
-    else if (from === "VN" && to === "VN") {
-        Result = "Result: " + Amount + "VND";
-    }
-    else  {
-        Result = "Result: " + Amount + "$";
-    }
-
-    document.getElementById("result").innerHTML = Result;
+        document.getElementById("result").innerHTML = Result;
+    } else alert("Bạn đã nhập sai giá tiền!");
 }
