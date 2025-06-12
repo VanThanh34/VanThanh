@@ -10,6 +10,7 @@ if (num1 > num2) {
     }
 } else if (num2 > num3) {
     alert("Số lớn nhất là số " + num2);
-} else {
+} else
+{
     alert("Số lớn nhất là số " + num3);
 }
