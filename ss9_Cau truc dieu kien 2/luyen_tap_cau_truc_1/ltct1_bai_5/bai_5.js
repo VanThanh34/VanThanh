@@ -10,6 +10,7 @@ if( 0 <= tong && tong >= 10) {
     } else {
         alert("Bạn đạt loại TB. Bạn cần cố gắng nhiều!")
     }
-} else {
+} else
+{
     alert("Số bạn không hợp lệ")
 }
