@@ -3,6 +3,7 @@ let dTich = num1 * num1;
 if (dTich > 0 && !isNaN(dTich)) {
     alert("Diện tích của hình vuông là: "+ dTich + "m2");
 }
-else {
+else
+{
     alert("Mời bạn nhập lại!")
 }
