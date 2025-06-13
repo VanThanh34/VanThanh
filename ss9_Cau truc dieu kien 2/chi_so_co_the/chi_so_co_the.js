@@ -1,6 +1,6 @@
 let weight = +prompt("Nhập cân nặng của bạn.");
 let height = +prompt("Mời nhập chiều cao của bạn.");
-let BMI = weight / (height * 2);
+let BMI = weight / (height * height);
 
 if (BMI < 18.5) {
     alert("Underweight");
