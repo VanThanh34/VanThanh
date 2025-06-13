@@ -14,7 +14,6 @@ if (billElectric <= 50) {
     alert("Số tiền điện của bạn là: " + ((50 *1728) + (50*1786) +(100*2074) +(100*2612) + (100*2919) + ((billElectric-400)*3015)) + " VND");
 }
 
-
 // toLocaleString(): tính năng thêm dấu phẩy cho tiền dễ nhìn hơn
 
 
