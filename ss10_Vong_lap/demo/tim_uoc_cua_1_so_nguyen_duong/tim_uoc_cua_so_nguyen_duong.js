@@ -26,6 +26,7 @@ while(text !== "q" && text !==""){
 }*/
 
 //tìm ước của 1 số nguyên dương
+
 let n = +prompt("Nhập vào 1 số nguyên");
 for (let i = 1; 1 <= n; i++){
     if(n%i === 0){
