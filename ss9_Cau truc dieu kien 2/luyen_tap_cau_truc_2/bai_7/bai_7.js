@@ -21,7 +21,6 @@ if (!isNaN(a)&&!isNaN(b)&&!isNaN(c)) {
    }else {
        alert("Phương trình có 2 nghiệm là: Nghiệm thứ nhất: " + delta2 +" Nghiệm thứ 2: "+ delta3);
    }
-
 } else {
     alert("Mời bạn nhập số hợp lệ");
 }
