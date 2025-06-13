@@ -5,7 +5,7 @@ let tong = (num1 + num2 + num3)/3;
 if( 0 <= tong && tong >= 10) {
     if (tong > 8) {
         alert("Bạn đạt loại giỏi!!!");
-    } else if (tong >= 6.5 && tong <=8 ) {
+    } else if (tong >= 6.5) {
         alert("Bạn đạt loại khá!")
     } else {
         alert("Bạn đạt loại TB. Bạn cần cố gắng nhiều!")
