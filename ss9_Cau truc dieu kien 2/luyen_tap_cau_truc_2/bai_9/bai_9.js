@@ -9,7 +9,7 @@ if(a > 0 &&  b > 0 && c >0 && !isNaN(a) &&!isNaN(b) && !isNaN(c)){
     } else {
         alert("khồng phải 3 cạnh của tam giác");
     }
-}else{
+}else {
     alert("Mời nhập số hợp lệ");
 }
 
