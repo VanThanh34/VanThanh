@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrStr = "codegymdaotao@2022";
+    let c;
+    let count  = 0;
+    for (let i = 0; i < arrStr.length; i++) {
+         c = arrStr[i];
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+            count++;
+        }
+    }
+    console.log(`Chuỗi có số ký tự chữ cái là ${count}`);
+
+</script>
+</body>
+</html>
