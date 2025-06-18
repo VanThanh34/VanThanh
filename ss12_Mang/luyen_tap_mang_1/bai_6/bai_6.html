@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số</title>
+</head>
+<body>
+<script>
+    let num = [1,2,3,4,5,6,7,8];
+    let randomNum = +prompt("Mời bạn nhập số");
+    let found = false;
+    if (!isNaN(randomNum)){
+    for (let i = 0; i < num.length; i++) {
+        if (randomNum === num[i]){
+            document.write(`Số thuộc trong mảng là số: ${randomNum}`);
+            found = true;
+            break;
+        }
+        }
+    if(!found) {
+            document.write(`Số không thuộc trong mảng.`);
+    }
+    } else{
+        document.write(`Mời bạn nhập lại.`)
+    }
+</script>
+</body>
+</html>
