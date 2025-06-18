@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = [1, 2, 3, 4, 5, 6, 7, 8];
+    let v = +prompt(`Mời nhập vào 1 số`);
+    let vLocation = num.indexOf(v);
+    for (let i = vLocation; i < num.length; i++) {
+        num[i] = num[i + 1];
+    }
+    num[num.length - 1] = 0;
+    document.write(num);
+</script>
+</body>
+</html>
