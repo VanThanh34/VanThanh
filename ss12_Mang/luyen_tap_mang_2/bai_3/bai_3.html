@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = ['a', '1', 'b', '2', 'c', '3', 'x', '4', 'z', '0'];
+    let count = 0;
+    for (let i = 0; i < a.length; i++) {
+        if(a[i] >= '0' && a[i] <='9'){
+            count++;
+            console.log(`Ký tự số đó là ${a[i]}`);
+        }
+    }
+        console.log(`Có ${count} số lượng ký tự số`)
+</script>
+</body>
+</html>
