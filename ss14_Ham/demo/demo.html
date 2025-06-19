@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+    Square of <input type="number" id="input" oninput="calculate()"> is <p id="result"></p>
 <script>
   // function sum(a, b){
   //   return a + b;
@@ -19,16 +20,25 @@
   // welcome("Văn","Thành");
 
   function square(num){
-      let result = num * num;
-      return result;
+      return  num * num;
+
   }
 
-  let square2 = square(2);
-      document.write(`Bình phương của 2: ${square2} <br>`)
+
+  function calculate(){
+      let num2 = +document.getElementById("input").value;
+      let resulT = square(num2);
+      console.log(resulT);
+      document.getElementById("result").innerHTML = resulT;
+  }
 
 
-  let square7 = square(7);
-      document.write(`Bình phương của 7: ${square7}`)
+  // let square2 = square(2);
+  //     document.write(`Bình phương của 2: ${square2} <br>`)
+  //
+  //
+  // let square7 = square(7);
+  //     document.write(`Bình phương của 7: ${square7}`)
 
 </script>
 </body>
