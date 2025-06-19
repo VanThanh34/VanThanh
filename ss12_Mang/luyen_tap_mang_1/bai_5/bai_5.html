@@ -7,13 +7,14 @@
 <body>
 <script>
     let num = [1,-1,-3,5,8,12,-7,1,-9];
-    let nega = 0;
+    let count = 0;
+    const nega = 0;
     for (let i = 0; i < num.length; i++) {
         if(nega > num[i]){
-            nega = num[i];
-            console.log(nega);
+            count++;
+
         }
-    }
+    }console.log(`Số lượng sô nguyên âm trong mảng là: ${count}`);
 
 </script>
 </body>
