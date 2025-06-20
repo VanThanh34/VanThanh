@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>DTich và Chu vi hình tròn</title>
 </head>
 <body>
-$END$
+<script>
+    function dTich(num){
+        return Math.PI * num;
+    }
+    function cVI(num){
+        return Math.PI * num * 2;
+    }
+    let bKinh = +prompt(`Mời nhập vào bán kính của hình tròn bạn muốn tính`)
+    if (bKinh > 0 && !isNaN(bKinh)){
+    let result1 = dTich(bKinh);
+    alert(`Diện tích của hình tròn là: ${result1} cm2`)
+    let result2 = cVI(bKinh);
+    alert(`Chu vi hình tròn là: ${result2} cm2`)
+    } else {
+        alert(`Mời bạn nhập số hợp lệ`)
+    }
+
+</script>
 </body>
 </html>
