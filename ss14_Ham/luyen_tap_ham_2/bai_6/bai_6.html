@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên dương</title>
+</head>
+<body>
+<script>
+  function checkNum(num){
+      if(!isNaN(num)){
+          if(num > 0){
+              return (`True!`);
+          }
+          else{
+              return (`False`);
+          }
+      } else {
+          return (`Mời nhập vào số hợp lệ!`);
+      }
+  }
+
+  let n = +prompt(`Mời nhập vào số nguyên dương: `)
+  let result = checkNum(n);
+  alert(result);
+</script>
+</body>
+</html>
