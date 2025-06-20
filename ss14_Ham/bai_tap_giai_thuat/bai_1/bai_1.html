@@ -17,7 +17,12 @@
 
     }
     let high = +prompt(`Mời nhập vào chiều dài`);
-    print(high);
+    if (!isNaN(high) && high >0){
+        print(high);
+    }else{
+        alert(`Mời bạn nhập lại số hợp lệ.`)
+    }
+
 </script>
 </body>
 </html>
