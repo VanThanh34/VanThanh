@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm ký tự trong mảng</title>
+</head>
+<body>
+<script>
+    function check(n1, n2){
+        let count = 0;
+        n1 = n1.split('');
+        let location = -1;
+        let found = false;
+        for (let i = 0; i <n1.length ; i++) {
+            if(n2 === n1[i]) {
+                location = i;
+                count++;
+                found = true;
+            }
+
+        }
+
+        if(found) {
+            return `${n2} có nằm trong mảng và số lần xuất hiện là ${count}`
+        }else{
+            return `${n2} không nằm trong mảng và số lần xuất hiện là: ${location} `
+        }
+    }
+
+    let arrStr = prompt(`Mời nhập vào dãy ký tự bất kì`);
+    let n = prompt(`Hãy nhập vào 1 ký tự bất kì`);
+    let result = check(arrStr, n);
+    alert(result);
+</script>
+</body>
+</html>
+
+<!--
+if(n1.includes(n2)){
+let location = n1.indexOf(n2);
+count++;
+}return `${n2} có trong mảng và `
+else{
+return `${n2} không có nằm trong mảng`
+}-->
