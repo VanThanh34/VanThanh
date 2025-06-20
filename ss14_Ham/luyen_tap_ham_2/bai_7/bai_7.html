@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ 2 số nguyên</title>
+</head>
+<body>
+<script>
+    function changeNum(a,b){
+        let x = 0;
+        if(!isNaN(a) && !isNaN(b)){
+            x = a;
+            a = b;
+            b = x;
+            return (`Số thứ nhất là: ${a} và số thứ hai là: ${b}`);
+        }else{
+            return (`Mời nhập vào số hợp lệ!`);
+        }
+    }
+
+    let num1 = +prompt(`Mowif nhập vào số thứ nhất`);
+    let num2 = +prompt(`Mowif nhập vào số thứ hai`);
+
+    let result = changeNum(num1, num2);
+    alert(result);
+</script>
+</body>
+</html>
