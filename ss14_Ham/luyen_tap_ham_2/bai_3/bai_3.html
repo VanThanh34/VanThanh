@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai thừa</title>
+</head>
+<body>
+<script>
+
+    function factorial(number){
+        let result = 1;
+        for (let i = 1; i <= number ; i++) {
+             result =result * i;
+        }
+        return result;
+    }
+
+    let n = +prompt(`Mời nhập vào 1 số`);
+    let resulT = factorial(n);
+    alert(`Giai thừa của số ${n} là: ${resulT}`);
+
+</script>
+</body>
+</html>
