@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hình</title>
+</head>
+<body>
+<table></table>
+<script>
+    function print(n){
+        for (let i = 0; i < n; i++) {
+            for(let j = 0; j < n; j++){
+            document.write(`*`);
+            }
+            document.write(`<br>`)
+        }
+
+    }
+    let high = +prompt(`Mời nhập vào chiều dài`);
+    print(high);
+</script>
+</body>
+</html>
