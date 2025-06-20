@@ -6,11 +6,33 @@
 </head>
 <body>
 <script>
-  function smallestNum(a,b,c){
-    if(a < b){
-      if (a < c)
-    }
+  function smallestNum(a,b,c) {
+      if (a < b) {
+          if (a < c) {
+              return(`Số ${a} là số bé nhất`);
+          } else {
+              return(`Số ${c} là số bé nhất`);
+          }
+      } else {
+          if (b < c) {
+              return(`Số ${b} là số bé nhất`);
+          } else {
+              return(`Số ${c} là số bé nhất`);
+          }
+      }
   }
+  let num1 = +prompt(`Mời nhập vào số 1`);
+  let num2 = +prompt(`Mời nhập vào số 2`);
+  let num3 = +prompt(`Mời nhập vào số 3`);
+
+  if(!isNaN(num1) && !isNaN(num2) && !isNaN(num3)){
+      let result = smallestNum(num1, num2, num3);
+      alert(result)
+  }
+  else {
+      alert(`Mời nhập vào số hợp lệ.`)
+  }
+
 </script>
 </body>
 </html>
