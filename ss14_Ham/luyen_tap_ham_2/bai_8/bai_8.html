@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng</title>
+</head>
+<body>
+<script>
+    function daoNguoc(numStr){
+        return numStr.split('').reverse().join('');
+    }
+
+    let arrNum = prompt(`Mời nhập vào 1 dãy số`);
+    if(!isNaN(Number(arrNum))){
+    let result = daoNguoc(arrNum);
+    alert(result);
+    }else{
+        alert(`Mời nhập dãy số hợp lệ.`)
+    }
+</script>
+</body>
+</html>
