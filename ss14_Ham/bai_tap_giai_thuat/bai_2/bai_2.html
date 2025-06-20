@@ -5,6 +5,46 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function checkMonth(num1) {
+        switch (num1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return (`Tháng ${num1} là tháng có 31 ngày`);
+            case 2:
+                return (`Tháng ${num1} là tháng có 28 ngày hoặc 29 ngày nếu năm nhuận`);
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return (`Tháng ${num1} là tháng có 30 ngày`);
+        }
 
+    }
+
+    function checkYear(num2) {
+        if (num2 % 4 === 0 && num2 % 100 !== 0) {
+            return (`Năm ${num2} là năm nhuận!`);
+        } else if (num2 % 100 === 0 && num2 % 400 !== 0) {
+            return (`Năm ${num2} không phải là năm nhuận`);
+        } else if (num2 % 100 === 0 && num2 % 400 === 0) {
+            return (`Năm ${num2} là năm nhuận`);
+        }
+
+
+    }
+
+    let month = +prompt(`Mời nhập vào tháng`);
+    let year = +prompt(`Mời nhập vào năm`);
+    let resultM = checkMonth(month);
+    alert(resultM);
+    let resultY = checkYear(year);
+    alert(resultY);
+</script>
 </body>
 </html>
