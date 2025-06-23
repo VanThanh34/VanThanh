@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 6px;
+    }
+</style>
+<body>
+
+<script>
+    class Student {
+        id;
+        name;
+        address;
+        idCard;
+        phoneNumber;
+
+        constructor(id, name, address, idCard, phoneNumber) {
+            this.id = id;
+            this.name = name;
+            this.address = address;
+            this.idCard = idCard;
+            this.phoneNumber = phoneNumber;
+        }
+
+        study(address) {
+            alert(`${this.name} đang đi học tai ${address}`)
+        }
+
+        goHome() {
+            alert(`${this.name} đang đi về nhà tại địa chỉ ${this.address}`)
+        }
+    }
+
+    let nhat = new Student(1, "Tô Long Nhật", "Hòa Khánh, Đà Nẵng", 134334534543, 23853456345345);
+    let thanh = new Student(2, "Võ Văn Thành", "Hòa Khánh, Đà Nẵng", 134334534543, 23853456345345);
+    let students = [nhat, thanh];
+
+
+    function displayStudents(students) {
+        let result = "<table >"
+        result +="<tr>" +
+            "<th>ID</th>" +
+            "<th>Name</th>" +
+            "<th>Address</th>" +
+            "<th>Id Card</th>" +
+            "<th>Phone Number</th>" +
+             "</tr>"
+        for (let i = 0; i < students.length; i++) {
+            result += "<tr>"
+            result += `<td>${students[i].id}</td>`
+            result += `<td>${students[i].name}</td>`
+            result += `<td>${students[i].address}</td>`
+            result += `<td>${students[i].idCard}</td>`
+            result += `<td>${students[i].phoneNumber}</td>`
+            result += "</tr>"
+        }
+        result += "</table>"
+        document.writeln(result)
+    }
+
+    displayStudents(students);
+    // nhat.study("CodeGym")
+    // nhat.goHome();
+    // thanh.name = "Võ Văn Thành";
+    // let nghiem = new Student(2, )
+    //
+</script>
+</body>
+</html>

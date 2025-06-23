@@ -6,18 +6,71 @@
 </head>
 <body>
 <script>
-  emp=[{
-      id:101,
-      name:"Van Thanh",
-      salary:40000
-  },{
-      id:102,
-      name:"Nhat Long",
-      salary: 50000
-  }
-  ]
-  document.write(emp[0].id+" "+emp[0].name+" "+emp[0].salary+"<br>")
-  document.write(emp[1].id+" "+emp[1].name+" "+emp[1].salary+"<br>")
+    emp=[{
+        id:101,
+        name:"Van Thanh",
+        salary:40000,
+        address:{
+            city:"ĐN",
+            country:"VN"}
+        }
+    ,{
+        id:102,
+        name:"Nhat Long",
+        salary: 50000
+    }
+    ]
+    document.write(emp[0].id+" "+emp[0].name+" "+emp[0].salary+" "+ emp[0].address.country+"<br>")
+    document.write(emp[1].id+" "+emp[1].name+" "+emp[1].salary+"<br>")
+
+    /*  function emp(id,name,salary){
+          this.id=id;
+          this.name=name;
+          this.salary=salary;
+
+          this.changeSalary=changeSalary;
+          this.changName=changeName;
+          this.changeId=changeId;
+
+          function changeSalary(otherSalary){
+              this.salary=otherSalary;
+          }
+          function changeName(otherName){
+              this.name=otherName;
+          }
+          function changeId(otherId){
+              this.id=otherId;
+          }
+      }
+      e=new emp(103,"Sonoo Jaiswal",30000);
+      document.write(e.id+" "+e.name+" "+e.salary);
+      e.changeSalary(45000);
+      document.write("<br>"+e.id+" "+e.name+" "+e.salary);
+      e.changName("Thanh");
+      document.write(`<br> ${e.id} ${e.name} ${e.salary}`);
+      e.changeSalary(50000);
+      document.write(`<br> ${e.id} ${e.name} ${e.salary}`);
+      e.changeId(134);
+      document.write(`<br> ${e.id} ${e.name} ${e.salary}`);*/
+
+/*//Constructor
+    class Employee {
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+            this.changeId=changeId;
+        }
+    }
+    function changeId(otherId){
+        this.id = otherId;
+    }
+
+    let emp1 = new Employee(101, "Nhat");
+    let emp2 = new Employee(102, "Thanh");
+    document.writeln(emp1.id + " " + emp1.name + "<br>");
+    document.writeln(emp2.id + " " + emp2.name + "<br>");
+    emp2.changeId(134);
+    document.writeln(emp2.id + " " + emp2.name);*/
 </script>
 </body>
 </html>
