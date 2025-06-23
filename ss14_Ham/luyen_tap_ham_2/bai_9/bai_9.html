@@ -9,7 +9,7 @@
     function check(n1, n2){
         let count = 0;
         n1 = n1.split('');
-        let location = -1;
+        let location = 0;
         let found = false;
         for (let i = 0; i <n1.length ; i++) {
             if(n2 === n1[i]) {
@@ -17,7 +17,7 @@
                 count++;
                 found = true;
             }
-
+            location = n1.indexOf(n2)
         }
 
         if(found) {
