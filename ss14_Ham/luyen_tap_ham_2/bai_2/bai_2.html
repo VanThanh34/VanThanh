@@ -6,17 +6,17 @@
 </head>
 <body>
 <script>
-    function dTich(num){
+    function tinhDienTich(num){
         return Math.PI * num;
     }
-    function cVI(num){
+    function tinhChuVI(num){
         return Math.PI * num * 2;
     }
-    let bKinh = +prompt(`Mời nhập vào bán kính của hình tròn bạn muốn tính`)
-    if (bKinh > 0 && !isNaN(bKinh)){
-    let result1 = dTich(bKinh);
+    let banKinh = +prompt(`Mời nhập vào bán kính của hình tròn bạn muốn tính`)
+    if (banKinh > 0 && !isNaN(banKinh)){
+    let result1 = tinhDienTich(banKinh);
     alert(`Diện tích của hình tròn là: ${result1} cm2`)
-    let result2 = cVI(bKinh);
+    let result2 = tinhChuVI(banKinh);
     alert(`Chu vi hình tròn là: ${result2} cm2`)
     } else {
         alert(`Mời bạn nhập số hợp lệ`)
