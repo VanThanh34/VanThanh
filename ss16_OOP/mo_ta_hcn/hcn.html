@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HCN</title>
+</head>
+<body>
+<canvas id="DemoCanvas" width="500" height="600" ></canvas>
+
+<script>
+    class Rectangle{
+        constructor(x,y,length,width,color){
+            this.x = x;
+            this.y = y;
+            this.length = length;
+            this.width = width;
+            this.color = color;
+            this.tinhChuVi = tinhChuVi;
+            this.tinhDienTich = tinhDienTich;
+            this.doiChieuDai = doiChieuDai;
+            this.doiChieuRong = doiChieuRong;
+        }
+        draw(ctx) {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.x, this.y, this.width, this.length);
+        }
+    }
+
+    // Lấy canvas và context
+    const canvas = document.getElementById("DemoCanvas");
+    const ctx = canvas.getContext("2d");
+    // Vẽ hình chữ nhật màu đỏ cam, kích thước và vị trí giống hình bạn gửi
+    const rect = new Rectangle(20, 20, 100, 50, "#FF4A26"); // đỏ cam (red-orange)
+
+    rect.draw(ctx);
+
+    function tinhChuVi(){
+        return (this.length + this.width)*2;
+    }
+
+    function tinhDienTich(){
+        return this.length * this.width;
+    }
+    function doiChieuDai(otherLength){
+        return this.length = otherLength;
+    }
+    function doiChieuRong(otherWidth){
+        return this.width = otherWidth;
+    }
+    let hcn = new Rectangle(5,10);
+    console.log(hcn.tinhChuVi())
+    console.log(hcn.tinhDienTich())
+    hcn.doiChieuRong(10);
+    hcn.doiChieuDai(20);
+    document.writeln(`<br>Chu vi hcn là: ${hcn.tinhChuVi()} <br>`);
+    document.writeln(`Diện tích hcn là: ${hcn.tinhDienTich()}`)
+
+</script>
+
+</body>
+</html>

@@ -6,22 +6,29 @@
 </head>
 <body>
 <script>
+    //object literal (Gọi thẳng object)
     emp=[{
         id:101,
         name:"Van Thanh",
         salary:40000,
         address:{
             city:"ĐN",
-            country:"VN"}
+            country:"VN"},
+        getInfo: function(){
+            return this.id + ' ' + this.name + ' '+ this.salary +' '+this.address.city+' '+this.address.country;
+        }
         }
     ,{
         id:102,
         name:"Nhat Long",
-        salary: 50000
+        salary: 50000,
+            getInfo2: function(){
+                return this.id + ' ' + this.name + ' '+ this.salary;
+            }
     }
     ]
-    document.write(emp[0].id+" "+emp[0].name+" "+emp[0].salary+" "+ emp[0].address.country+"<br>")
-    document.write(emp[1].id+" "+emp[1].name+" "+emp[1].salary+"<br>")
+    document.write(emp[0].getInfo()+"<br>")
+    document.write(emp[1].getInfo2()+"<br>")
 
     /*  function emp(id,name,salary){
           this.id=id;
@@ -71,6 +78,20 @@
     document.writeln(emp2.id + " " + emp2.name + "<br>");
     emp2.changeId(134);
     document.writeln(emp2.id + " " + emp2.name);*/
+
+   /* //khai báo hàm bằng thuộc tính Prototype
+    function Apple (type) {
+        this.type = type;
+        this.color = "red";
+    }
+    Apple.prototype.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+
+    let myApple = new Apple("Fruit");
+    alert(myApple.getInfo())*/
+
+
 </script>
 </body>
 </html>

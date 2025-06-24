@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function myDate(day,month,year){
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        // this.setDay = setDay;
+        // this.setMonth = setMonth;
+        // this.setYear = setYear;
+       /* this.getDay = function (){
+            return this.day;
+        }
+        this.getMonth = function (){
+            return this.month;
+        }
+        this.getYear = function (){
+            return this.year;
+        }*/
+    }
+    myDate.prototype.getDay =function (){
+        return this.day;
+    }
+    myDate.prototype.getMonth =function (){
+        return this.month;
+    }
+    myDate.prototype.getYear =function (){
+        return this.year;
+    }
+    myDate.prototype.setDay =function (otherDay){
+         this.day = otherDay;
+    }
+    myDate.prototype.setMonth =function (otherMonth){
+         this.month = otherMonth;
+    }
+    myDate.prototype.setYear =function (otherYear){
+         this.year = otherYear;
+    }
+
+    let myDay = new myDate(2,2,2007);
+    let day = myDay.getDay();
+    let month = myDay.getMonth();
+    let year = myDay.getYear();
+    myDay.setDay(13);
+    myDay.setMonth(4);
+    myDay.setYear(2002);
+    console.log(day,month,year);
+    console.log(myDay);
+    alert(myDay.getDay()+myDay.setMonth()+myDay.setYear())
+</script>
+</body>
+</html>
