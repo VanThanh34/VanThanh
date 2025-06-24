@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(quantity) {
+            this.quantity = quantity ?? 10;
+        }
+
+        getInfoApple() {
+            return this.quantity;
+        }
+
+        decrease() {
+            if (this.quantity > 0) {
+                this.quantity--;
+            }
+        }
+    }
+
+
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        speak() {
+            let Prifix = this.gender === "Nam" ? "Mr." : "Ms.";
+            return (`Xin chào, tôi là ${Prifix}${this.name}. Mukbang táo cùng tôi nhé!`)
+        }
+
+        checkApple(Apple) {
+            return Apple.getInfoApple();
+        }
+
+        eat(Apple) {
+            if(Apple.getInfoApple() > 0){
+                this.weight += 1;
+                Apple.decrease();
+                return (`${this.name} vừa mukbang 1 quả táo. Cân nặng bây giờ là: ${this.weight}, số táo còn lại là: ${Apple.quantity}`);
+            }else{
+                return (`Chubby hay sao mà hết táo rôi!!!`);
+            }
+
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(otherName) {
+            return this.name = otherName;
+        }
+
+        getWeight() {
+            return `${this.weight}`;
+        }
+
+        setWeight(otherWeight) {
+            return this.weight = otherWeight;
+        }
+    }
+    let taso = new Apple();
+    let per1 = new Human(`Adam`, `Nam`, 85);
+    let per2 = new Human(`Eva`, `Nữ`, 55);
+    let a = per1.checkApple(taso);
+    console.log(a)
+    console.log(per1.speak())
+    console.log(per2.speak())
+    console.log(per1.getName())
+    console.log(per2.getName())
+    console.log(per1.getWeight())
+    console.log(per2.getWeight())
+    let abc = per1.setName(`Bin`);
+    console.log(abc);
+    let bcd = per2.setName(`Bê`)
+    console.log(bcd);
+    let cde = per1.setWeight(82);
+    console.log(cde)
+    let def = per2.setWeight(50)
+    console.log(def)
+    let efg = per1.eat(taso)
+    let efg1 = per1.eat(taso)
+    let efg2 = per1.eat(taso)
+    let efg3 = per1.eat(taso)
+    let efg4 = per1.eat(taso)
+    let efg5 = per1.eat(taso)
+    let efg6 = per1.eat(taso)
+    let efg7 = per1.eat(taso)
+    let efg8 = per1.eat(taso)
+    let efg9 = per1.eat(taso)
+    let efg10 = per1.eat(taso)
+    console.log(efg10)
+</script>
+</body>
+</html>
