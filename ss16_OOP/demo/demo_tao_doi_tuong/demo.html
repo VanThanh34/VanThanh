@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person{
+        constructor(firstName, lastName, age, gender, interests) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+
+        }
+        getBio(){
+            return `${this.lastName} is ${this.age} years old. They like ${this.interests} `;
+        }
+        getGreeting(){
+            return  `Hi! I'm ${this.lastName}`;
+        }
+
+    }
+    let per1 = new Person(`Bob`, `Smith`, 32, `Male`, `Music and Chess`);
+    let mess1 = per1.getBio();
+    let mess2 = per1.getGreeting();
+    console.log(per1)
+    console.log(mess1)
+    console.log(mess2)
+    let per2 = new Person(`Anna`, `Loan`, 28, `Female`, `Music and Chess`);
+    let mess3 = per2.getBio();
+    let mess4 = per2.getGreeting();
+    console.log(per2)
+    console.log(mess3)
+    console.log(mess4)
+</script>
+</body>
+</html>

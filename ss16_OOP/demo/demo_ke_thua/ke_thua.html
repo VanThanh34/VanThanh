@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person{
+        constructor(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        sayHello(){
+            return `${this.name} xin chào các bạn nhé :3`
+        }
+    }
+
+    class Student extends Person{
+        constructor(name, age, gender, school) {
+            super(name, age, gender);
+            this.school = school;
+        }
+        study(){
+            return `${this.name} đang học ở trường ${this.school}`;
+        }
+    }
+
+    class Teacher extends Person{
+        constructor(name, age, gender, school, subject) {
+            super(name, age, gender);
+            this.school = school;
+            this.subject = subject;
+        }
+        hello(){
+            let Prefix = this.gender === "Nam" ? "Mr. " : "Ms. ";
+            return `Xin chào, tôi là ${Prefix}${this.name}. Tôi hiện đang dạy ${this.subject} ở trường ${this.school}`
+        }
+    }
+
+    let bin = new Student(`Văn Thành`, 22,`Nam`, `Đại học FPT`);
+    let hai = new Teacher(`Tấn Hải`, 27, `Nam`, `Đại học Bách Khoa`, `IT`);
+    let mess = bin.sayHello();
+    let mess1 = bin.study();
+    let mess2 = hai.hello();
+    console.log(bin);
+    console.log(hai);
+    console.log(mess2);
+    console.log(mess);
+    console.log(mess1);
+</script>
+</body>
+</html>
