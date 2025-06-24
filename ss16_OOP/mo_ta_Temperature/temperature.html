@@ -8,6 +8,9 @@
 <script>
     class Temperature{
         constructor(C) {
+            if (C < -273.15) {
+                throw new Error("Nhiệt độ không được nhỏ hơn -273.15°C (0K)");
+            }
             this.C = C;
             this.changeF = changeF;
             this.changeK = changeK;
@@ -20,7 +23,7 @@
         return this.C + 273.15;
     }
 
-    let doC = new Temperature(25);
+    let doC = new Temperature(-100);
     document.writeln(`Độ C là: ${doC.C} °C <br>`);
     let doF = doC.changeF();
     document.writeln(`Độ F là: ${doF} °F <br>`);
