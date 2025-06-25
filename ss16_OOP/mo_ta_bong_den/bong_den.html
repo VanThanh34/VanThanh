@@ -43,8 +43,8 @@
 
     let lamp = new ElectricLamp(`Off`)
     let switchb = new SwitchButton(`Off`, lamp)
+    let result;
     for (let i = 1; i <= 10; i++) {
-        let result;
         if (i % 2 !== 0) {
             result = lamp.turnOn();
         } else {
