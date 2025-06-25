@@ -12,16 +12,16 @@
                 throw new Error("Nhiệt độ không được nhỏ hơn -273.15°C (0K)");
             }
             this.C = C;
-            this.changeF = changeF;
-            this.changeK = changeK;
+        }
+        changeF(){
+            return (this.C * 1.8) + 32;
+        }
+        changeK(){
+            return this.C + 273.15;
         }
     }
-    function changeF(){
-        return (this.C * 1.8) + 32;
-    }
-    function changeK(){
-        return this.C + 273.15;
-    }
+
+
 
     let doC = new Temperature(25);
     document.writeln(`Độ C là: ${doC.C} °C <br>`);
