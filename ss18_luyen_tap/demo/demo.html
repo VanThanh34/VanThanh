@@ -31,6 +31,65 @@
     console.log(counter);*/
 
 
+/*    //chuyển đổi thời gian
+    let s = `07:05:45PM`
+    let v = `12:02:00AM`
+    function timeConversion(s) {
+        let period = s.slice(-2); //lấy 2 kí tự cuối chuỗi
+        let time = s.slice(0, 8); //bắt đầu từ vị trí 0 lấy 8 kí tự
+        let [hour, minute, second] = time.split(':'); //chia ra theo dấu :
+
+        if (period === "AM") {
+            if (hour === "12") hour = "00";
+        } else {
+            if (hour !== "12") hour = String(parseInt(hour) + 12); //chuyển thành số nguyên bên trong chuỗi để +12 rồi chuển lại thành chuỗi
+        }
+
+        return `${hour}:${minute}:${second}`;
+    }
+    console.log(timeConversion(v));*/
+
+  /*  //làm tròn điểm
+    function gradingStudents(grades) {
+        return grades.map(grade => {
+            if (grade < 38) return grade;
+
+            let nextMultipleOf5 = Math.ceil(grade / 5) * 5;
+            if (nextMultipleOf5 - grade < 3) {
+                return nextMultipleOf5;
+            } else {
+                return grade;
+            }
+        });
+    }*/
+
+  /*  //chia socola dựa trên ngày (d) và tháng(Subarray division)
+    function birthday(s, d, m) {
+        let count = 0;
+        let n = s.length;
+
+
+        for (let i = 0; i <= n - m; i++) {
+            let sum = 0;
+
+            for (let j = 0; j < m; j++) {
+                sum += s[i + j];
+            }
+
+            if (sum === d) {
+                count++;
+            }
+        }
+
+        return count;
+
+    }
+
+    let a = [2,3,2,3,2,6];
+    let b = 5;
+    let c = 2;
+    console.log(birthday(a,b,c));*/
+    
 </script>
 </body>
 </html>

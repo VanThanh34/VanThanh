@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học viên có ảnh</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        input, select { margin: 5px; padding: 5px; width: 160px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; vertical-align: middle; }
+        th { background: #f0f0f0; }
+        img.avatar { width: 50px; height: 50px; object-fit: cover; border-radius: 50%; }
+    </style>
+</head>
+<body>
+<img src="https://daihoc.fpt.edu.vn/wp-content/uploads/2024/03/dai-hoc-fpt-da-nang-1-1024x576.jpeg" style="width: 100%; height:400px">
+<h2>Quản Lý Học Viên </h2>
+
+<input id="id" type="text" placeholder="ID">
+<input id="name" type="text" placeholder="Họ tên">
+<select id="gender">
+    <option value="Nam">Nam</option>
+    <option value="Nữ">Nữ</option>
+</select><br>
+<input id="dob" type="date">
+<input id="phone" type="text" placeholder="Số điện thoại">
+<input id="cccd" type="text" placeholder="CCCD">
+<input id="avatar" type="text" placeholder="Link ảnh đại diện"><br>
+
+<button id="addBtn" onclick="themHocVien()">Thêm học viên</button>
+<button id="updateBtn" onclick="capNhatHocVien()" style="display:none">Cập nhật học viên</button>
+
+<table>
+    <thead>
+    <tr>
+        <th width="70px">Ảnh</th>
+        <th>ID</th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>SDT</th>
+        <th>CCCD</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody id="danhSachHocVien"></tbody>
+</table>
+
+<script>
+    class HocVien {
+        constructor(id, name, gender, dob, phone, idcard, avatar) {
+            this.id = id;
+            this.name = name;
+            this.gender = gender;
+            this.dob = dob;
+            this.phone = phone;
+            this.idcard = idcard;
+            this.avatar = avatar || 'https://via.placeholder.com/50'; // ảnh mặc định
+        }
+    }
+
+    let danhSach = [];
+    let indexDangSua = -1;
+
+    function themHocVien() {
+        let id = document.getElementById("id").value.trim();
+        let name = document.getElementById("name").value.trim();
+        let gender = document.getElementById("gender").value;
+        let dob = document.getElementById("dob").value;
+        let phone = document.getElementById("phone").value.trim();
+        let cccd = document.getElementById("cccd").value.trim();
+        let avatar = document.getElementById("avatar").value.trim();
+
+        if (!id || !name || !dob || !phone || !cccd) {
+            alert("Vui lòng nhập đầy đủ thông tin.");
+            return;
+        }
+
+        if (danhSach.some(hv => hv.id === id)) {
+            alert("ID đã tồn tại!");
+            return;
+        }
+
+        let hv = new HocVien(id, name, gender, dob, phone, cccd, avatar);
+        danhSach.push(hv);
+        resetForm();
+        hienThiDanhSach();
+    }
+
+    function xoaHocVien(index) {
+        danhSach.splice(index, 1);
+        hienThiDanhSach();
+    }
+
+    function suaHocVien(index) {
+        let hv = danhSach[index];
+        document.getElementById("id").value = hv.id;
+        document.getElementById("id").disabled = true;
+        document.getElementById("name").value = hv.name;
+        document.getElementById("gender").value = hv.gender;
+        document.getElementById("dob").value = hv.dob;
+        document.getElementById("phone").value = hv.phone;
+        document.getElementById("cccd").value = hv.cccd;
+        document.getElementById("avatar").value = hv.avatar;
+
+        document.getElementById("addBtn").style.display = "none";
+        document.getElementById("updateBtn").style.display = "inline";
+        indexDangSua = index;
+    }
+
+    function capNhatHocVien() {
+        let name = document.getElementById("name").value.trim();
+        let gender = document.getElementById("gender").value;
+        let dob = document.getElementById("dob").value;
+        let phone = document.getElementById("phone").value.trim();
+        let cccd = document.getElementById("cccd").value.trim();
+        let avatar = document.getElementById("avatar").value.trim();
+
+        if (!name || !dob || !phone || !idcard) {
+            alert("Vui lòng nhập đầy đủ thông tin.");
+            return;
+        }
+
+        let hv = danhSach[indexDangSua];
+        hv.name = name;
+        hv.gender = gender;
+        hv.dob = dob;
+        hv.phone = phone;
+        hv.idcard = cccd;
+        hv.avatar = avatar || 'https://via.placeholder.com/50';
+
+        resetForm();
+        hienThiDanhSach();
+
+        document.getElementById("id").disabled = false;
+        document.getElementById("addBtn").style.display = "inline";
+        document.getElementById("updateBtn").style.display = "none";
+        indexDangSua = -1;
+    }
+
+    function hienThiDanhSach() {
+        let tbody = document.getElementById("danhSachHocVien");
+        tbody.innerHTML = "";
+
+        danhSach.forEach((hv, i) => {
+            tbody.innerHTML += `
+          <tr>
+            <td><img src="${hv.avatar}" class="avatar" alt="Ảnh đại diện"></td>
+            <td>${hv.id}</td>
+            <td>${hv.name}</td>
+            <td>${hv.gender}</td>
+            <td>${hv.dob}</td>
+            <td>${hv.phone}</td>
+            <td>${hv.idcard}</td>
+            <td>
+              <button onclick="suaHocVien(${i})">Sửa</button>
+              <button onclick="xoaHocVien(${i})">Xoá</button>
+            </td>
+          </tr>
+        `;
+        });
+    }
+
+    function resetForm() {
+        document.getElementById("id").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("gender").value = "Nam";
+        document.getElementById("dob").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("idcard").value = "";
+        document.getElementById("avatar").value = "";
+    }
+</script>
+
+</body>
+</html>
