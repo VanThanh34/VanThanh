@@ -75,10 +75,10 @@ function hienThiDanhSach(ds = danhSach) {
 }
 
 
-
 function capNhatDiemDanh(index, value) {
     danhSach[index].attendance = value;
 }
+
 
 function resetForm() {
     document.getElementById("id").value = "";
