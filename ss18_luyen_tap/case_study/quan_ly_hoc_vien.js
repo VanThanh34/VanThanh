@@ -158,6 +158,7 @@ function formatNgay(ngayISO) {
 
 function xoaHocVien(index) {
     danhSach.splice(index, 1);
+    confirm(`Bạn có chắc chắn muốn xóa không?`)
     hienThiDanhSach();
 }
 

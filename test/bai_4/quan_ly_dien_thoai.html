@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Điện Thoại</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-section, .table-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            flex: 1;
+        }
+
+        .table-section {
+            flex: 2;
+        }
+
+        input, button, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản Lý Kho Điện Thoại</h1>
+<div class="container">
+    <div class="form-section">
+        <h3>Thêm điện thoại</h3>
+        <input type="text" id="maDienThoai" placeholder="Mã điện thoại">
+        <input type="text" id="ten" placeholder="Tên điện thoại">
+        <input type="text" id="hang" placeholder="Hãng điện thoại">
+        <input type="number" id="gia" placeholder="Giá điện thoại">
+        <button onclick="themDienThoai()">Thêm mới</button>
+    </div>
+    <div class="table-section">
+        <h3>Danh sách điện thoại</h3>
+        <p>Sắp xếp theo:</p>
+        <select id="sortOptions" onchange="sapXep()">
+            <option value="ten">Tên</option>
+            <option value="hang">Hãng</option>
+            <option value="gia">Giá</option>
+        </select>
+        <table>
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Hãng</th>
+                <th>Giá ($)</th>
+            </tr>
+            </thead>
+            <tbody id="bangDienThoai"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Khai báo lớp Điện thoại
+    class DienThoai {
+        constructor(ma, ten, hang, gia) {
+            this.ma = ma;
+            this.ten = ten;
+            this.hang = hang;
+            this.gia = gia;
+        }
+    }
+
+    // Mảng lưu danh sách điện thoại
+    let danhSachDienThoai = [];
+
+    function themDienThoai() {
+        let ma = document.getElementById("maDienThoai").value.trim();
+        let ten = document.getElementById("ten").value.trim();
+        let hang = document.getElementById("hang").value.trim();
+        let gia = parseFloat(document.getElementById("gia").value);
+
+        if (!ma || !ten || !hang || isNaN(gia)) {
+            alert("Vui lòng nhập đầy đủ và đúng thông tin!");
+            return;
+        }
+
+        for (let i = 0; i < danhSachDienThoai.length; i++) {
+            if (danhSachDienThoai[i].ma === ma) {
+                alert("Mã điện thoại đã tồn tại!");
+                return;
+            }
+        }
+
+        let dt = new DienThoai(ma, ten, hang, gia);
+        danhSachDienThoai.push(dt);
+        resetForm();
+        hienThiDanhSach();
+    }
+
+    function resetForm() {
+        document.getElementById("maDienThoai").value = "";
+        document.getElementById("ten").value = "";
+        document.getElementById("hang").value = "";
+        document.getElementById("gia").value = "";
+    }
+
+    function hienThiDanhSach() {
+        let tbody = document.getElementById("bangDienThoai");
+        tbody.innerHTML = "";
+        danhSachDienThoai.forEach((dt, index) => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${dt.ma}</td>
+                    <td>${dt.ten}</td>
+                    <td>${dt.hang}</td>
+                    <td>${dt.gia}</td>
+                </tr>
+            `;
+        });
+    }
+    function sapXep() {
+        let tieuChi = document.getElementById("sortOptions").value;
+        if (tieuChi === "gia") {
+            // Sắp xếp số tăng dần
+            danhSachDienThoai.sort((a, b) => a.gia - b.gia);
+        } else {
+            // Sắp xếp chữ cái (tên, hãng)
+            danhSachDienThoai.sort((a, b) => a[tieuChi].localeCompare(b[tieuChi]));
+        }
+        hienThiDanhSach();
+    }
+
+    let ip = new DienThoai(`ipx`, `iphone xs max`, `IPHONE`, 950);
+    let ip15 = new DienThoai(`ip15`, `iphone 15 pro max`, `IPHONE`, 1150);
+    let ss23 = new DienThoai(`ss23`, `samsung s23`, `SAMSUNG`, 1050);
+    let ss24 = new DienThoai(`ss24`, `samsung s24`, `SAMSUNG`, 1250);
+    danhSachDienThoai.push(ip, ss23, ss24, ip15);
+    hienThiDanhSach();
+</script>
+</body>
+</html>
