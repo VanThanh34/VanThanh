@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function kiemtraSoHoanHao() {
+        let sum = 0;
+        do {
+
+            let n = +prompt(`Moi nhap vao 1 so nguyen duong`)
+            for (let i = n - 1; i >= 1; i--) {
+                if (n % i === 0) {
+                    sum += i;
+                }
+            }
+            if (sum === n) {
+                alert(`True`);
+            } else alert(`False`);
+        } while (isNaN(n) || n <= 0 || n % 1 !== 0);
+    }
+
+
+    kiemtraSoHoanHao();
+</script>
+</body>
+</html>

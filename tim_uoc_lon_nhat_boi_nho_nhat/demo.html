@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do{
+      n = +prompt(`Moi nhap vao so nguyen duong`);
+    }while (n <= 0);
+    let maxU = 1;
+
+    for (let i = n-1; i >= 1 ; i--) {
+        if(n%i ===0){
+            maxU = i;
+            break;
+        }
+    }
+    let minB = 0;
+    for (let i = n+1; i < n*10; i++) {
+        if(i%n === 0){
+            minB = i;
+            break;
+        }
+    }
+    document.write(`Ước lớn nhất: ${maxU}, Bội số nhỏ nhất: ${minB}`)
+
+</script>
+</body>
+</html>

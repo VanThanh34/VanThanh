@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    function nhapThangNam() {
+        let thangNam;
+        let thang = "";
+        let nam = "";
+        let hopLe = false;
+
+        do {
+            thangNam = prompt(`Nhap thang nam (dinh dang thang/nam):`);
+            thang = "";
+            nam = "";
+            let coDauGach = false;
+
+            for (let i = 0; i < thangNam.length; i++) {
+                if (thangNam[i] === "/") {
+                    coDauGach = true;
+                } else if (!coDauGach) {
+                    thang += thangNam[i];
+                } else {
+                    nam += thangNam[i];
+                }
+            }
+
+
+
+            thang = parseInt(thang);
+            nam = parseInt(nam);
+
+            if (!isNaN(thang) && !isNaN(nam) && thang !== 0) {
+                hopLe = true;
+                isLeapYear(nam);
+                checkMonth(thang, nam)
+            } else {
+                alert("Thang nam khong hop le! Thang phai khac 0 va nhap dung dinh dang thang/nam.");
+            }
+        } while (!hopLe);
+
+        return {thang, nam};
+
+    }
+
+    function checkMonth(num1, num2) {
+        switch (num1) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                alert(`Thang ${num1} la thang co 31 ngay trong nam ${num2}`);
+                break;
+            case 2:
+                if (isLeapYear(num2)) {
+                    alert(`Thang ${num1} la thang co 29 ngay trong nam ${num2}`);
+                    break;
+                } else {
+                    alert(`Thang ${num1} la thang co 28 ngay trong nam ${num2}`);
+                    break;
+                }
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                alert(`Thang ${num1} la thang co 30 ngay trong nam ${num2}`);
+                break;
+            default:
+                alert(`Khong co thang nay!`)
+        }
+
+    }
+
+    function isLeapYear(num2) {
+        if (num2 % 4 === 0 && num2 % 100 !== 0 || num2 % 400 === 0) return true;
+    }
+
+    nhapThangNam();
+</script>
+</body>
+</html>
+

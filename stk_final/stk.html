@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Sổ Tiết Kiệm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 5px;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-actions button {
+            padding: 8px 20px;
+            margin: 0 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Quản lí công nhân</h2>
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Địa chỉ</th>
+            <th>Lương</th>
+            <th>Chức vụ</th>
+        </tr>
+        </thead>
+        <tbody id="bangSoTietKiem"></tbody>
+    </table>
+</div>
+
+<script>
+    class SoTietKiem {
+        constructor(maSo, loaiTietKiem, hoTen, cmnd, ngayMoSo, soTienGui) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.hoTen = hoTen;
+            this.cmnd = cmnd;
+            this.ngayMoSo = ngayMoSo;
+            this.soTienGui = soTienGui;
+        }
+    }
+
+    let danhSachSo = [
+        new SoTietKiem("12345", "Ngắn hạn", "Nguyễn Văn A", "123456789", "2023-01-01", 1000000),
+        new SoTietKiem("23456", "Dài hạn", "Trần Thị B", "987654321", "2023-02-02", 2000000),
+        new SoTietKiem("23456", "Dài hạn", "Trần Thị C", "987654321", "2023-02-02", 20000000)
+    ];
+
+    function hienThiDanhSach() {
+        let tbody = document.getElementById("bangSoTietKiem");
+        tbody.innerHTML = "";
+
+        for (let i = 0; i < danhSachSo.length; i++) {
+            let s = danhSachSo[i];
+            let row = `<tr>
+          <td>${s.maSo}</td>
+          <td>${s.loaiTietKiem}</td>
+          <td>${s.hoTen}</td>
+          <td>${s.cmnd}</td>
+          <td>${s.ngayMoSo}</td>
+          <td>${s.soTienGui}</td>
+        </tr>`;
+            tbody.innerHTML += row;
+        }
+    }
+
+    function themSoTietKiem() {
+        let maSo = document.getElementById("maSo").value.trim();
+        let loaiTietKiem = document.getElementById("loaiTietKiem").value.trim();
+        let hoTen = document.getElementById("hoTen").value.trim();
+        let cmnd = document.getElementById("cmnd").value.trim();
+        let ngayMoSo = document.getElementById("ngayMoSo").value;
+        let soTienGui = parseFloat(document.getElementById("soTienGui").value);
+
+        if (!maSo || !loaiTietKiem || !hoTen || !cmnd || !ngayMoSo || isNaN(soTienGui) || soTienGui <= 0) {
+            alert("Vui lòng nhập đầy đủ thông tin hợp lệ!");
+            return;
+        }
+
+        for (let i = 0; i < danhSachSo.length; i++) {
+            if (danhSachSo[i].maSo === maSo) {
+                alert("Mã số đã tồn tại!");
+                return;
+            }
+        }
+
+        let moi = new SoTietKiem(maSo, loaiTietKiem, hoTen, cmnd, ngayMoSo, soTienGui);
+        danhSachSo.push(moi);
+        hienThiDanhSach();
+    }
+
+    function xoaSoTietKiem() {
+        let maSo = prompt("Nhập mã số cần xoá:");
+        let viTri = -1;
+        for (let i = 0; i < danhSachSo.length; i++) {
+            if (danhSachSo[i].maSo === maSo) {
+                viTri = i;
+                break;
+            }
+        }
+
+        if (viTri === -1) {
+            alert("Không tìm thấy mã số!");
+        } else {
+            if (confirm("Bạn có chắc muốn xoá sổ tiết kiệm này?")) {
+                danhSachSo.splice(viTri, 1);
+                hienThiDanhSach();
+            }
+        }
+    }
+
+    hienThiDanhSach();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sổ Tiết Kiệm</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        input[type="text"], input[type="number"] { width: 95%; padding: 4px; }
+        .form-row { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>Quản lý Sổ Tiết Kiệm</h2>
+
+<div style="width: 500px;">
+    <div class="form-row">
+        <label for="maSo">Mã sổ:</label>
+        <input type="text" id="maSo">
+    </div>
+    <div class="form-row">
+        <label for="loaiTietKiem">Loại tiết kiệm:</label>
+        <input type="text" id="loaiTietKiem">
+    </div>
+    <div class="form-row">
+        <label for="hoTen">Họ tên:</label>
+        <input type="text" id="hoTen">
+    </div>
+    <div class="form-row">
+        <label for="chungMinh">CMND:</label>
+        <input type="number" id="chungMinh">
+    </div>
+    <div class="form-row">
+        <label for="ngayMoSo">Ngày mở sổ:</label>
+        <input type="text" id="ngayMoSo" placeholder="dd/mm/yyyy">
+    </div>
+    <div class="form-row">
+        <label for="soTien">Số tiền:</label>
+        <input type="number" id="soTien">
+    </div>
+    <div class="form-row">
+        <button onclick="themSoTietKiem()">Thêm</button>
+        <button onclick="xoaSoTietKiem()">Xóa</button>
+    </div>
+</div>
+<hr>
+
+<div id="bangHienThi"></div>
+<script src="stk.js"></script>
+</body>
+</html>
